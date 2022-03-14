@@ -21,7 +21,28 @@ export default authContext;
 
 import types, Context and reducer files;
 
-``
+`
+const AuthState = ({children}) => {
+const initialState = {
+isAuth:false,
+user:null
+}
+
+    	<!-- initial reducer -->
+    	const [state,dispatch] = useReducer(AuthReducer,initialState);
+
+    	<!-- actions -->
+
+    	const login = async (email,password) => {
+    		response
+    		dispatch({type:LOGIN,payload:{user}})
+    	}
+    	return (<AuthContext.Provider> {children} </AuthContext.Provider>)
+
+    }
+
+export default AuthState
+`
 
 ### authReducer.js file
 
@@ -29,7 +50,7 @@ import types;
 
 const authReducer = (action, state) => {
 
-````
+`
 switch (actions.type) {
 case LOGIN:
 return {
@@ -48,8 +69,12 @@ auth: false,
 
 }
 
-```
+`
 
 export default authReducer
+
 ```
-````
+
+```
+
+## Wrapp App with AuthState
