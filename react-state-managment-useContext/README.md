@@ -64,7 +64,7 @@ auth: false,
 };
 
     	default:
-    		state;
+    		return state;
     }
 
 }
