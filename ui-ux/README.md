@@ -13,3 +13,13 @@ What should happen if a user taps on this button? How do we make this action eas
 ## Visual design
 
 Focus on how a product or technology looks. they are responsi
+
+# Project lifecicle
+
+1. Brain storm
+
+2. Defin
+
+3. Design
+
+4. Test
