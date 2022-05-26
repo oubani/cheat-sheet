@@ -39,6 +39,8 @@ export default counterSlice.reducer
 
 ```
 
+test
+
 ## 3 - use in component
 
 import reducers actions from
