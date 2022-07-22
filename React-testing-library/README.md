@@ -19,7 +19,7 @@ Testing interaction between components
 3. End to End (E2E) Test
 semulate the userflow 
 
-## Test block 
+## Test blocks
 
 1. render the component we xant to test 
 
