@@ -53,6 +53,8 @@ semulate the userflow
 
 ### getByTestId
 
+1. getByTestId
+
 ## How to write Test 
 
 first we need to import render and screen from react testing labrary, hen render the component, get the element,and then the result expected   
