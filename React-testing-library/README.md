@@ -31,3 +31,9 @@ semulate the userflow
 
 ## Query methods
 
+1. getBy : Fails if not match or in more then one match, passes in one match, No await.
+2. findBy : Fails if not match or in more then one match, passes in one match, support await. 
+2. queryBy : returns null if not match, passes in one match return array, Fails in more then one match, no await. 
+1. getAllBy : Fails if not match, passes and return array in one or more then one match, No await. 
+2. findAllBy : Fails if not match, return Array in or more then one match, support await.
+2. queryAllBy : Passes and  returns array in all situations, no await 
