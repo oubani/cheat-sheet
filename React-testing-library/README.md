@@ -64,3 +64,14 @@ example
 `       const headingElemnt = screen.getElementByText('')`
 `       expect(headingElemnt).toBeInTheDocument()`
 `}) `
+
+```
+import {render,screen} from '@testing-library/react';
+import Header from "../Header"
+
+it('Test header',()=>{
+    render(<Header />);
+    const headingElement = screen.getByText('title');
+    expect(headingElement).toBeInTheDocument();
+})
+```
