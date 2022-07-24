@@ -57,13 +57,7 @@ semulate the userflow
 
 first we need to import render and screen from react testing labrary, hen render the component, get the element,and then the result expected   
 example 
-`import {render, screen} from '@testing-react/react' `
-`import Component from './Component' `
-`   it('test name',()=> {`
-`       render(<Component/>)`
-`       const headingElemnt = screen.getElementByText('')`
-`       expect(headingElemnt).toBeInTheDocument()`
-`}) `
+
 
 ```
 import {render,screen} from '@testing-library/react';
