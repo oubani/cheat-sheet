@@ -37,3 +37,30 @@ semulate the userflow
 1. getAllBy : Fails if not match, passes and return array in one or more then one match, No await. 
 2. findAllBy : Fails if not match, return Array in or more then one match, support await.
 2. queryAllBy : Passes and  returns array in all situations, no await 
+
+
+## Priority
+
+### Accessible by Everyone
+1. getByRole
+2. getByLabelText
+3. getByPlaceHolderText
+3. getByText
+
+### Semantic Queries 
+1. getByAllText
+2. getByTitle
+
+### getByTestId
+
+## How to write Test 
+
+first we need to import render and screen from react testing labrary, hen render the component, get the element,and then the result expected   
+example 
+`import {render, screen} from '@testing-react/react' `
+`import Component from './Component' `
+`   it('test name',()=> {`
+`       render(<Component/>)`
+`       const headingElemnt = screen.getElementByText('')`
+`       expect(headingElemnt).toBeInTheDocument()`
+`}) `
