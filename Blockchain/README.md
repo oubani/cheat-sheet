@@ -7,18 +7,18 @@
 ### Ethereum Vs Bitcoin
 
 1. Ethereum
-   is a store of value and utility to facilitate decentralized agreement
+   is a store of value and utility to facilitate decentralized agreements
 1. Bitcoin
    is a store of value.
 
-#### Ethereum uses Keccak 256 for hashing
+#### Ethereum uses Keccak256 for hashing
 
 ### Words
 
 1. Hash : is unique fixed length string to identify a piece of data
 2. Block : list of transactions minde together
 3. Decentralized : having no single point of authority
-4. Nonce : A "Number used once " to find the "Soluion" to he blockchain problem also used to define the transaction number for an account
+4. Nonce : A "Number used once " to find the "Solution" to he blockchain problem also used to define the transaction number for an account
 
 ### Signing transactions
 
@@ -33,7 +33,7 @@
 4. Base Fee : the minimum gas price to send a transaction.
 5. the bigger the blockchain, he more secure.
 
-6. Sharding && Rollups needs to be understand
+6. Sharding && Rollups needs to be understand latter.
 
 # Solidity
 
@@ -49,12 +49,36 @@
 
 execute a subset of code when they called
 
+### functions visibility
+
+```
+   function myFunction () <visiblity specifier > returns (bool) {
+      return true
+   }
+```
+
+#### public
+
+visible externally and internally (creates a getter function for storage /state variables)
+
+#### private
+
+only visible in the current contract
+
+#### external
+
+only visible externally (only for functions) can only be message-called(via this.func)
+
+#### internal
+
+only visible internally
+
 ## file
 
 1. Spdx licence
 2. choose the version we want to use.
 3. decalre contract
-4. initialize date;
+4. initialize data;
 5. create functions
 
 ```
@@ -72,5 +96,46 @@ contract ContractName {
       favoriteNumber = _favoriteNumber;
    }
 
+   // mapping
+
+   mapping (string => uint256) public nameToFavoriteNumber;
+
+   // getter
+
+   function read() public view returns (uint256) {
+      return favoriteNumber;
+   }
+
+   // create array of people with favorite number and add person to array
+
+   struct People {
+      uint256 favoriteNumber;
+      string name;
+   }
+
+   People[] public people;
+
+   function addPerson (string memory _name, uint _favoriteNumber) public {
+      people.push(People(_favoriteNumber,_name));
+      nameToFavoriteNumber[_name]=_favoriteNumber
+   }
+
 }
 ```
+
+# Basic solidity
+
+## Memry, Storage,& calldata
+
+EVM can access and store information in six places
+
+1. Stack
+2. Memory : for temporary variable can be modified.
+3. Storage
+4. Calldata : temporary variable can't be modified.
+5. Code
+6. Logs
+
+## Mappings
+
+is a data structure where a key is "mapped" to a single value
