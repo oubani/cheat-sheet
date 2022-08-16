@@ -170,3 +170,17 @@ function fsRead(uint256 _simpleStorageIndex) public view returns (uint256) {
 
 
 ```
+
+- Inheritance && Overriceinj
+
+```
+...
+// in parent function we add virtual
+import './SimpleStorage.sol'
+contract ExtraStorage is SimpleStorage  {
+   function store(uint256 _favoriteNumber) public override {
+      favoriteNumber =_favoriteNumber;
+   }
+}
+
+```
