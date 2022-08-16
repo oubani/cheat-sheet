@@ -171,7 +171,8 @@ function fsRead(uint256 _simpleStorageIndex) public view returns (uint256) {
 
 ```
 
-- Inheritance && Overriceinj
+- Inheritance && Overriding
+  make the function you want to override virtual, and add override to the function
 
 ```
 ...
