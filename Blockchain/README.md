@@ -80,10 +80,13 @@ only visible internally
 3. decalre contract
 4. initialize data;
 5. create functions
+6. import contract in contact
 
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
+import "./secondContractName.sol"
+
 contract ContractName {
    bool hasFavoriteNumber = false;
    // this gets initialized to zero
@@ -139,3 +142,31 @@ EVM can access and store information in six places
 ## Mappings
 
 is a data structure where a key is "mapped" to a single value
+
+## Tips
+
+- You can Create array of contracts
+
+* import Contract
+
+```
+import './SimpleStorage';
+
+contract StorageFactory {
+
+SimpleStorage[] public simpleStorageArray;
+
+// call store function in SimpleStoreProduct
+function sfStore(uint256 _SimpleStorageIndex,uint256 _simpleStorageNumber) public {
+   simpleStorageArray[_simpleStorageIndex].store(_simpleStorageNumber)
+}
+// read Favorite number in SimpleStorage
+function fsRead(uint256 _simpleStorageIndex) public view returns (uint256) {
+   return simpleStorageArray[_simpleStorageIndex].read();
+}
+
+
+}
+
+
+```
