@@ -178,10 +178,36 @@ function fsRead(uint256 _simpleStorageIndex) public view returns (uint256) {
 ...
 // in parent function we add virtual
 import './SimpleStorage.sol'
-contract ExtraStorage is SimpleStorage  {
-   function store(uint256 _favoriteNumber) public override {
+contract  SimpleStorage  {
+   function store(uint256 _favoriteNumber) public virtual {
       favoriteNumber =_favoriteNumber;
    }
 }
+contract ExtraStorage is SimpleStorage  {
+   function store(uint256 _favoriteNumber) public override {
+      favoriteNumber =_favoriteNumber+120;
+   }
+}
 
+```
+
+## Payable functions
+
+you add payable word to the function
+
+```
+   function fund() public payable {
+      // if you want to get the payied amount
+      msg.value;
+
+   }
+```
+
+## Reverting
+
+undo all the action before, and send remaining gas back, if the first params of require is false;
+
+```
+   // to use
+     require(msg.value>1e18,"You don't have enough!");
 ```
