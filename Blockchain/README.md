@@ -244,7 +244,7 @@ contract Fund {
 
 ## refresh or resetting an array
 
-`solidity funders = new address[](0);`
+` funders = new address[](0);`
 
 ## withdraw funds
 
