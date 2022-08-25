@@ -51,7 +51,7 @@ execute a subset of code when they called
 
 ### functions visibility
 
-```
+```solidity
    function myFunction () <visiblity specifier > returns (bool) {
       return true
    }
@@ -82,7 +82,7 @@ only visible internally
 5. create functions
 6. import contract in contact
 
-```
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
 import "./secondContractName.sol"
@@ -149,7 +149,7 @@ is a data structure where a key is "mapped" to a single value
 
 * import Contract
 
-```
+```solidity
 import './SimpleStorage';
 
 contract StorageFactory {
@@ -174,7 +174,7 @@ function fsRead(uint256 _simpleStorageIndex) public view returns (uint256) {
 - Inheritance && Overriding
   make the function you want to override virtual, and add override to the function
 
-```
+```solidity
 ...
 // in parent function we add virtual
 import './SimpleStorage.sol'
@@ -195,7 +195,7 @@ contract ExtraStorage is SimpleStorage  {
 
 you add payable word to the function
 
-```
+```solidity
    function fund() public payable {
       // if you want to get the payied amount
       msg.value;
@@ -207,7 +207,7 @@ you add payable word to the function
 
 undo all the action before, and send remaining gas back, if the first params of require is false;
 
-```
+```solidity
    // to use
      require(msg.value>1e18,"You don't have enough!");
 ```
@@ -222,7 +222,7 @@ doesn't contain state, all function have internal instead of public , after impo
 exemple : <br/>
 /LibraryName.sol
 
-```
+```solidity
 ....
 library PriceConverter {
    function convertionRate (uint ethAmount) internal view returns (uint256) {
@@ -233,7 +233,7 @@ library PriceConverter {
 
 /Fund.sol
 
-```
+```solidity
 ....
 import './LibraryName.sol';
 
@@ -244,7 +244,7 @@ contract Fund {
 
 ## refresh or resetting an array
 
-`funders = new address[](0);`
+`solidity funders = new address[](0);`
 
 ## withdraw funds
 
