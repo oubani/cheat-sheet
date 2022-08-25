@@ -248,7 +248,7 @@ contract Fund {
 
 ## withdraw funds
 
-```
+```solidity
 /* actually withdraw the funds */
         //transfer : throws error if fail revert the transaction
         payable(msg.sender).transfer(address(this).balance);
