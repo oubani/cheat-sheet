@@ -211,3 +211,52 @@ undo all the action before, and send remaining gas back, if the first params of 
    // to use
      require(msg.value>1e18,"You don't have enough!");
 ```
+
+## chainLink
+
+i will fill it later
+
+## Library
+
+doesn't contain state, all function have internal instead of public , after importing it you have to use it <br/>
+exemple : <br/>
+/LibraryName.sol
+
+```
+....
+library PriceConverter {
+   function convertionRate (uint ethAmount) internal view returns (uint256) {
+      .....
+   }
+}
+```
+
+/Fund.sol
+
+```
+....
+import './LibraryName.sol';
+
+contract Fund {
+   using LibraryName for uint256;
+}
+```
+
+## refresh or resetting an array
+
+`funders = new address[](0);`
+
+## withdraw funds
+
+```
+/* actually withdraw the funds */
+        //transfer : throws error if fail revert the transaction
+        payable(msg.sender).transfer(address(this).balance);
+        // send : return bool
+        bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        require(sendSuccess,"Send Faild");
+        // call
+        (bool callSuccess, ) = payable(msg.sender).call{value:address(this).balance}("");
+
+        require(callSuccess,"Call faild");
+```
