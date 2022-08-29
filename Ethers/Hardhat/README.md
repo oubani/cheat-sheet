@@ -30,8 +30,7 @@ async function main() {
   console.log(`Deploying contract ...`);
   const contract = await SimpleStorage.deploy();
   await contract.deployed();
-  console.log("Contract deployed");
-  console.log(contract);
+  console.log(`Contract deployed to : ${contract.address}`);
 }
 
 main()
@@ -44,3 +43,38 @@ main()
 ```
 
 ## Deploy To other networks "Rinkeby"
+
+in .env file store the private key and rpc url
+
+```env
+RINKEBY_RPC_NETWORK=
+PRIVATE_ACCOUNT=
+```
+
+in hardhat.config.js add network you want to deploy to, you have to install detenv as dev dep
+
+```javascript
+require("dotenv").config();
+
+const account = process.env.PRIVATE_ACCOUNT;
+const rpcUrl = process.env.RINKEBY_RPC_NETWORK;
+
+module.exports = {
+  solidity: "0.8.8",
+  networks: {
+    rinkeby: {
+      accounts: [account],
+      chainId: 4,
+      url: rpcUrl,
+    },
+  },
+};
+```
+
+then you run
+
+```
+yarn hardhat run scripts/deploy.js --network rinkeby
+```
+
+if you deployed it successfully you can search for it in : [https://rinkeby.etherscan.io](https://rinkeby.etherscan.io)
