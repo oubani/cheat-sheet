@@ -112,7 +112,7 @@ in deploy folder create file who make the deploy ` 01-deploy-fund-me.js` needs t
 in '01-deploy-fund-me.js'
 
 ```javascript
-
+module.exports = async () => {};
 ```
 
 then you run
