@@ -23,4 +23,17 @@ export const Button = styled.button`
     &:hover {
         color:'coral';...
     }
+    &:active {
+        color:'green';...
+    }
+```
+
+### Access to childern inside a component
+
+```
+    &:hover {
+        & label {
+            color :'red'
+        }
+    }
 ```
