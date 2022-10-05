@@ -26,7 +26,7 @@
 
 3. iteract with those elements
 
-4. Assert that the results are as expected
+4. Assert that the results are as what we expected
 
 ## Query methods
 
@@ -57,16 +57,16 @@
 
 ## How to write Test
 
-first we need to import render and screen from react testing labrary, hen render the component, get the element,and then the result expected  
+first we need to import render and screen from react testing labrary, then render the component, get the element, and then the result expected  
 example
 
-```
-import {render,screen} from '@testing-library/react';
-import Header from "../Header"
+```javascript
+import { render, screen } from "@testing-library/react";
+import Header from "../Header";
 
-it('Test header',()=>{
-    render(<Header />);
-    const headingElement = screen.getByText('title');
-    expect(headingElement).toBeInTheDocument();
-})
+it("Test header", () => {
+  render(<Header />);
+  const headingElement = screen.getByText("title");
+  expect(headingElement).toBeInTheDocument();
+});
 ```
