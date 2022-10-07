@@ -65,8 +65,8 @@ import { render, screen } from "@testing-library/react";
 import Header from "../Header";
 
 it("Test header", () => {
-  render(<Header />);
-  const headingElement = screen.getByText("title");
+  render(<Header title="My header" />);
+  const headingElement = screen.getByText(/my header/);
   expect(headingElement).toBeInTheDocument();
 });
 ```
