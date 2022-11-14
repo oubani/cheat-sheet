@@ -94,3 +94,24 @@ it("should render the correct amount of incompled tasks", async () => {
   expect(paragraphElement).toBeInTheDocument(/5 tasks left/i);
 });
 ```
+
+## Add events to test type and Click
+
+```javascript
+const mockedSetTodos = jest.fn();
+describe("Test AddTodo", () => {
+  it("Should have empty input after clicking on the add button", async () => {
+    render(<AddInput todos={[]} setTodos={mockedSetTodos} />);
+    // get button and input
+    const inputElement = screen.getByPlaceholderText(/add a new task here/i);
+    const buttonElemnt = screen.getByRole("button", { name: /Add/ });
+    // change to todo value / fill the input
+    fireEvent.change(inputElement, {
+      target: { value: "Learn React testing" },
+    });
+    // click to add button
+    fireEvent.click(buttonElemnt);
+    expect(inputElement.value).toBe("");
+  });
+});
+```
