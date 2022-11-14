@@ -5,7 +5,7 @@
 1. Catch Bugs
 2. Increases the confidence of the application.
 3. Speeds up QA time
-4. Can serve as documentations
+4. Can serve as documentation
 
 ## Types of Testing
 
@@ -68,5 +68,29 @@ it("Test header", () => {
   render(<Header title="My header" />);
   const headingElement = screen.getByText(/my header/);
   expect(headingElement).toBeInTheDocument();
+});
+```
+
+```javascript
+import { render, screen } from "@testing-library/react";
+import TodoFooter from "../TodoFooter";
+import { BrowserRouter } from "react-router-dom";
+
+const MockTodoFooter = ({ numberOfIncompleteTasks }) => {
+  return (
+    <BrowserRouter>
+      <TodoFooter numberOfIncompleteTasks={numberOfIncompleteTasks} />
+    </BrowserRouter>
+  );
+};
+
+it("should render the correct amount of incompled tasks", async () => {
+  // render the component we want to test
+  render(<MockTodoFooter numberOfIncompleteTasks={5} />);
+
+  // Find the element we want to interact with
+  const paragraphElement = screen.getByTestId("para");
+  // interact with emenets and assert thas the results are expected
+  expect(paragraphElement).toBeInTheDocument(/5 tasks left/i);
 });
 ```
