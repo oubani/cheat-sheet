@@ -60,6 +60,8 @@
 first we need to import render and screen from react testing labrary, then render the component, get the element, and then the result expected  
 example
 
+### Unite test
+
 ```javascript
 import { render, screen } from "@testing-library/react";
 import Header from "../Header";
@@ -114,4 +116,61 @@ describe("Test AddTodo", () => {
     expect(inputElement.value).toBe("");
   });
 });
+```
+
+### Integration test
+
+you write in the parent component
+
+```javascript
+import { screen, render } from "react-testing-libary";
+import Tod from "../Todo";
+describe("Todo", () => {
+  it("should add the task to the array of tasks", async () => {
+    render(<MockTodo />);
+    // Get Elements
+    const inputElemnet = screen.getByPlaceholderText(/add a new task here.../i);
+    const buttonElement = screen.getByRole("button", { name: /Add/i });
+    // interact with the element
+    fireEvent.change(inputElemnet, { target: { value: "This is a new Task" } });
+    fireEvent.click(buttonElement);
+    const divElement = screen.getByText(/This is a new Task/i);
+    // assert that the result is what we have expected
+    expect(divElement).toBeInTheDocument();
+  });
+});
+```
+
+check if the list is empty
+
+```javascript
+it("should not add task if the input is empty", async () => {
+  render(<MockTodo />);
+  addTask([""]);
+  const tasksElements = screen.queryAllByTestId("task-container");
+  expect(tasksElements.length).toBe(0);
+});
+```
+
+Test Fitched data
+
+```javascript
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import FollowersList from "../FollowersList";
+
+const MockFolllowersList = () => {
+  return (
+    <BrowserRouter>
+      <FollowersList />
+    </BrowserRouter>
+  );
+};
+
+describe("FollowersList", () => {
+  it("Should render follower items", async () => {
+    render(<MockFolllowersList />);
+    const followerDivElement = await screen.findByTestId(/follower-item-0/i);
+    expect(followerDivElement).toBeInTheDocument();
+  });
 ```
