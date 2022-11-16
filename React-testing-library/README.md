@@ -127,6 +127,7 @@ import { screen, render } from "react-testing-libary";
 import Tod from "../Todo";
 describe("Todo", () => {
   it("should add the task to the array of tasks", async () => {
+    // the todo componenet  is already wrapped in BrouserRoute, because it contains Link router
     render(<MockTodo />);
     // Get Elements
     const inputElemnet = screen.getByPlaceholderText(/add a new task here.../i);
